@@ -12,6 +12,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .container {
@@ -23,3 +24,40 @@
     padding: 1em;
 }
 
+.lista-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 70vw;
+}
+
+.container__botao:checked~.lista-menu {
+    display: block;
+}/*Se o botão container__botao, estiver cheked, que é uma peseudo, com o ~ que é o chamado combinador css, vai procurar o outro elemento que vem em seguida .lista-menu e muda para display block, que antes estava none, esse caso é o mais perto que chegamos perto de uma condicional css */
+
+.lista-menu__titulo, .lista-menu__item {
+    padding: 1em;
+    background-color: var(--branco);
+}
+
+.lista-menu__titulo {
+    color: var(--laranja);
+    font-weight: 700;
+}
+
+.lista-menu__link {
+    background: var(--azul-degrade);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /*Primeiro colocamos o degrade, só que ele não aplica na fonte, então aquele background-clip: text; vai prender aquela cor do background só aonde tem texto e aqueles webkits é para funcionar em outros  tipos de navegador*/
+    text-transform: uppercase;
+}
+
+.container__botao {
+    display: none;
+} /*E aqui tiramos a caixinha do checkbox*/
+
+
+    
+    
