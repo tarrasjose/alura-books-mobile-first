@@ -7,6 +7,7 @@
     display: inline-block;
 }
 
+
 .cabecalho {
     background-color: var(--branco);
     display: flex;
@@ -58,6 +59,116 @@
     display: none;
 } /*E aqui tiramos a caixinha do checkbox*/
 
+/*Alteração por conta do media screen*/
 
-    
+.container__titulo {
+    display: none;
+}
+
+.opcoes {
+    display: none;
+}
+
+.container__texto {
+    display: none;
+}
+
+
+
+.container__botao:checked~.container__rotulo>.cabecalho__menu-hamburguer {
+    background-image: url("../img/Menu\ Aberto.svg");
+    padding: 1.43em 1em;
+}/*Mudando o menu hamburguer para branco quando clica nele*/
+
+.container__botao:checked~.container__rotulo {
+    background: var(--azul-degrade);
+} /*Mudando fundo de branco para azul degrade quando cloca no hamburguer*/
+
+
+@media screen and (min-width:1024px) {
+    .container__titulo, .container__titulo--negrito {
+        font-family: var(--fonte-secundaria);
+        font-size: 30px;
+    }
+
+    .container__titulo {
+        font-weight: 400;
+        display: block;
+    }
+
+    .container__titulo--negrito {
+        font-weight: 700;
+    }
+
+    .opcoes {
+        display: flex;
+    }
+
+    .opcoes__item {
+        padding: 0 1em;
+        text-transform: uppercase;
+    }
+
+    .opcoes__link {
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .container__imagem-transparente {
+        display: none;
+    }
+
+    .cabecalho__menu-hamburguer {
+        display: none;
+    }
+
+    .opcoes__botao:checked ~ .lista-menu {
+        display: block;
+        width: auto;
+    } /*Menu no tablet*/
+
+    .opcoes__botao {
+        display: none;
+    } 
+
+
+    .opcoes__botao:checked~.opcoes__rotulo> .opcoes__item {
+        background: var(--azul-degrade);
+        color: var(--branco);
+    }
+
+    .opcoes__item {
+        padding: 2em 1em;
+    }
+
+    .lista-menu__item:hover {
+        background: var(--azul-degrade);
+    }
+
+    .lista-menu__item:hover > .lista-menu__link {
+        -webkit-text-fill-color: var(--branco); /*Teve que usar este porque lá no inicio do projeto para colocar esta cor azul-degrade na fonte, tivemos que colocar um background e depois associar ele a fonte e quando defimos webkit-text-fill-color definimos como transparente, então ele não aplicava cor nenhuma, além daquele background que estava aplicado*/
+        text-decoration: none;
+    }
+}
+
+@media screen and (min-width:1728px) {
+    .container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .cabecalho {
+        padding: 0 2em;
+    }
+
+    .opcoes {
+        margin-right: auto; /*Quando usamos o flex, quando colocamos uma margin left, right, bottom... Se colocarmos o valor auto, ele vai tentar preencher todo o espaço que está sobrando, no caso ele preencheu todo espaço da direita com a margin, então todos os itens foram empurrados para a esquerda */
+    }
+
+    .container__texto {
+        display: block;
+    }
+}
     
